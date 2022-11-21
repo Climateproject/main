@@ -20,7 +20,12 @@ public class ClimateApplication {
 
 	@PostConstruct
 	public void init(){
-		UserRepo.delete(1L, "MattiM", "Matti", "Meikäläinen", 1234
-		);
+		UserRepo.saveAll(List.of(
+			new User(3L,"LiisaL", "Liisa", "Laukkanen", 1236),
+			new User(4L,"RitvaR", "Ritva", "Roponen", 1237),
+			new User(5L,"TeroT", "Tero", "Tauriainen", 1238),
+			new User(6L,"OttoO", "Otto", "Ollila", 1239)
+			
+		));
 	}
 }

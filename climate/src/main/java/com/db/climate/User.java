@@ -17,7 +17,7 @@ public class User {
     private String lname;
     private int password;
 
-    public User(int i, String string, String string2, String string3, int j) {
+    public User(Long id, String username, String fname, String lname, int password) {
     }
 
     public User(String username, String fname, String lname, int password) {
@@ -25,6 +25,9 @@ public class User {
         this.fname = fname;
         this.lname = lname;
         this.password = password;
+    }
+
+    public User(long id, String username, String fname, String lname, int password) {
     }
 
     public Long getId() {
