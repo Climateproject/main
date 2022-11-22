@@ -9,7 +9,7 @@ import { useState } from 'react';
 function App() {
 
   //Tähän talletetaan bootstrap-menun valinta (eventKey).
-  const [selection, setSelection] = useState(0);
+  const [selection, setSelection] = useState();
 
   return (
     <div>
@@ -21,19 +21,20 @@ function App() {
             <Navbar.Collapse id='basic-navbar-nav'>
                  {/* onSelect asettaa menussa valitun itemin eventKeyn */}
               <Nav className="me-auto" onSelect={sel => setSelection(sel)}>
-                  <Nav.Link eventKey={0}>Home</Nav.Link>
-                  <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item eventKey={1}>First</NavDropdown.Item>
-                    <NavDropdown.Item eventKey={2}>Second</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item eventKey={3}>Third</NavDropdown.Item>
+                  <Nav.Link eventKey={"kaikilla on hauskaa!"}>Tsemppi</Nav.Link>
+                  <NavDropdown title="Kiinnostaako?" id="basic-nav-dropdown">
+                    <NavDropdown.Item eventKey={"jjee moti satasessa"}>Samuli</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={"wwuhuu"}>Meri</NavDropdown.Item>
+                    <NavDropdown.Divider /> {/* Tää erittelee meidät*/}
+                    <NavDropdown.Item eventKey={"koodaus on kivaa"}>Inka</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={":--)"}>Juuso</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
           </Container>
       </Navbar>
     
-      <h1>Tämän sivun numero on {selection}</h1>
+      <h1>Mahtavaa jee {selection}</h1>
 
     </div>
   );
