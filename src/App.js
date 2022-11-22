@@ -21,7 +21,8 @@ function App() {
             <Navbar.Collapse id='basic-navbar-nav'>
                  {/* onSelect asettaa menussa valitun itemin eventKeyn */}
               <Nav className="me-auto" onSelect={sel => setSelection(sel)}>
-                  <Nav.Link eventKey={"kaikilla on hauskaa!"}>Tsemppi</Nav.Link>
+                  <Nav.Link eventKey={"kaikilla on hauskaa!"}>Home</Nav.Link>
+                  <Nav.Link>Log In</Nav.Link>
                   <NavDropdown title="Kiinnostaako?" id="basic-nav-dropdown">
                     <NavDropdown.Item eventKey={"jjee moti satasessa"}>Samuli</NavDropdown.Item>
                     <NavDropdown.Item eventKey={"wwuhuu"}>Meri</NavDropdown.Item>
