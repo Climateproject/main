@@ -38,7 +38,8 @@
 }
 body {
   background-image: url("/src/images/globe.jpg");
-  background-size: 1600px 800px;
+  background-color: #cccccc;
+  
  }
 
  h1 {
