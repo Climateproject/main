@@ -27,7 +27,7 @@ function App() {
                   <NavDropdown title="Valikko" id="basic-nav-dropdown">
                     <NavDropdown.Item eventKey={1}>Samuli</NavDropdown.Item>
                     <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={2}>Meri</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={2}>Graafit</NavDropdown.Item>
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={3}>Inka</NavDropdown.Item>
                     <NavDropdown.Divider /> 
@@ -38,7 +38,7 @@ function App() {
           </Container>
       </Navbar>
     
-      {selection == 2 ? <Chart1/> : <h1>jok muu sivus</h1>}
+      {selection == 2 ? <Chart1/> : <h1>joku muu sivu</h1>}
      
 
     </div>
