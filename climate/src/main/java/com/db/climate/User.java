@@ -10,14 +10,12 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id;
     private String username;
     private String fname;
     private String lname;
     private int password;
 
-    public User(Long id, String username, String fname, String lname, int password) {
+    public User() {
     }
 
     public User(String username, String fname, String lname, int password) {
@@ -27,16 +25,8 @@ public class User {
         this.password = password;
     }
 
-    public User(long id, String username, String fname, String lname, int password) {
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    //public User(long id, String username, String fname, String lname, int password) {
+   // }
 
     public String getUsername() {
         return this.username;
@@ -70,30 +60,6 @@ public class User {
         this.password = password;
     }
 
-    public User id(Long id) {
-        setId(id);
-        return this;
-    }
-
-    public User username(String username) {
-        setUsername(username);
-        return this;
-    }
-
-    public User fname(String fname) {
-        setFname(fname);
-        return this;
-    }
-
-    public User lname(String lname) {
-        setLname(lname);
-        return this;
-    }
-
-    public User password(int password) {
-        setPassword(password);
-        return this;
-    }
 
     
 }
