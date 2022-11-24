@@ -23,9 +23,9 @@ function App() {
             <Navbar.Collapse id='basic-navbar-nav'>
                  {/* onSelect asettaa menussa valitun itemin eventKeyn */}
               <Nav className="me-auto" onSelect={sel => setSelection(sel)}>
-                  <Nav.Link eventKey={"kaikilla on hauskaa!"}>Etusivu</Nav.Link>
+                  <Nav.Link eventKey={0}>Etusivu</Nav.Link>
                   <NavDropdown title="Valikko" id="basic-nav-dropdown">
-                    <NavDropdown.Item eventKey={1}>Samuli</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={1}>Kirjaudu</NavDropdown.Item>
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={2}>Graafit</NavDropdown.Item>
                     <NavDropdown.Divider /> 
@@ -38,11 +38,36 @@ function App() {
           </Container>
       </Navbar>
     
-      {selection == 2 ? <Chart1/> : <h1>joku muu sivu</h1>}
+      {selection == 2 ? <Chart1/> : <h1></h1>};
+      {selection == 1 ? <Login/> : <h1></h1>};
      
-
+    
     </div>
   );
+}
+
+function Login()
+{
+  return (
+  <div>
+  <form>
+    <div>
+    <label> Käyttäjänimi </label>
+    </div>
+    <div>
+    <input type ="text"name ="uname" id="uname" placeholder='****'/>
+    </div>
+    <div>
+    <label> Salasana </label>
+    </div>
+    <div><input type="password" name ="pass" id="pass"placeholder='****'/>
+    </div>
+    <div>
+    <input type ="button" name="log" id="log" value="Kirjaudu"/>
+    </div>
+  </form>
+  </div>
+  )
 }
 
 function Chart1()
@@ -74,7 +99,6 @@ const [chartData, setcharData] = useState({
       <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
        
        <div><Line data={chartData}/></div>
-       <div><Bar data ={chartData}/></div>
        <div><Pie data ={chartData}/></div>
        
       </div>
