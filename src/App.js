@@ -55,19 +55,62 @@ function App() {
 }
 function Pitoisuudet()
 {
+  const productSales = [
+    {year: 1993, sales: 500},
+    {year: 1994, sales: 340},
+    {year: 1995, sales: 700},
+    {year: 1996, sales: 700}
+  ];
+  
+  const [chartData, setcharData] = useState({
+      labels: productSales.map(d => d.year),
+      datasets: [
+        {
+          label: "product sales",
+          data: productSales.map(d=> d.sales),
+          backgroundColor: [
+            '#99346C','#E6DA85','#E66EB0','#57D8E6'
+          ]
+        }
+      ],
+    });
   return (
-    <div>
-
-    </div>
+    <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
+       
+  
+       <div><Pie data ={chartData}/></div>
+       
+      </div>
   )
 }
 
 function Lämpötilat()
 {
+  const productSales = [
+    {year: 1993, sales: 500},
+    {year: 1994, sales: 340},
+    {year: 1995, sales: 700},
+    {year: 1996, sales: 700}
+  ];
+  
+  const [chartData, setcharData] = useState({
+      labels: productSales.map(d => d.year),
+      datasets: [
+        {
+          label: "product sales",
+          data: productSales.map(d=> d.sales),
+          backgroundColor: [
+            '#99346C','#E6DA85','#E66EB0','#57D8E6'
+          ]
+        }
+      ],
+    });
   return(
-    <div>
-
-    </div>
+    <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
+       
+       <div><Line data={chartData}/></div>
+       
+      </div>
   )
 }
 
