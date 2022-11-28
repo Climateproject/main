@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div>
+      <h5>web-ohjelmoinnin sovellusprojekti</h5>
       <Navbar bg='dark' variant='dark' expand='lg'>
           <Container>
              {/* Lisätään hampparimenu */}
@@ -26,27 +27,103 @@ function App() {
                   <Nav.Link eventKey={0}>Etusivu</Nav.Link>
                   <NavDropdown title="Valikko" id="basic-nav-dropdown">
                     <NavDropdown.Item eventKey={1}>Kirjaudu</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={2}>Luo käyttäjä</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item eventKey={3}>Päästölähteet</NavDropdown.Item>
                     <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={2}>Graafit</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={3}>Inka</NavDropdown.Item>
-                    <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={4}>Juuso</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={5}>Co2 pitoisuudet</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
           </Container>
       </Navbar>
     
-      {selection == 2 ? <Chart1/> : <h1></h1>};
-      {selection == 1 ? <Login/> : <h1></h1>};
+      {selection == 3 ? <Päästölähteet/> : <h1></h1>};
+      {selection == 1 ? <Kirjaudu/> : <h1></h1>};
+      {selection == 2 ? <Luo/> : <h1></h1>};
+      {selection == 0 ? <Etusivu/> : <h1></h1>};
+      {selection == 4 ? <Lämpötilat/> : <h1></h1>};
+      {selection == 5 ? <Pitoisuudet/> : <h1></h1>};
+
+    
      
     
     </div>
   );
 }
+function Pitoisuudet()
+{
+  return (
+    <div>
 
-function Login()
+    </div>
+  )
+}
+
+function Lämpötilat()
+{
+  return(
+    <div>
+
+    </div>
+  )
+}
+
+function Etusivu()
+{
+  return(
+    <div class ="Etusivu">
+      <div>
+      <h1>Faktat näkyväksi</h1>
+    </div>
+    <div>
+      <h2>Ilmastonmuutoksen visualisointia</h2>
+    </div>
+    <div>
+      <a href="https://github.com/Climateproject/main">GitHub</a> <a href ="https://www.youtube.com/">YouTube</a>
+    </div>
+    </div>
+  )
+}
+function Luo()
+{
+  return (
+    <div>
+  <form>
+    <div>
+    <label> Etunimi </label>
+    </div>
+    <div>
+    <input type ="text"name ="uname" id="uname" placeholder=''/>
+    </div>
+    <div>
+    <label> Sukunimi </label>
+    </div>
+    <div>
+    <input type ="text"name ="uname" id="uname" placeholder=''/>
+    </div>
+    <div>
+    <label> Käyttäjänimi</label>
+    </div>
+    <div>
+    <input type ="text"name ="uname" id="uname" placeholder=''/>
+    </div>
+    <div>
+    <label> Salasana </label>
+    </div>
+    <div><input type="password" name ="pass" id="pass"placeholder='****'/>
+    </div>
+    <div>
+    <input type ="button" name="log" id="log" value="Luo käyttäjä"/>
+    </div>
+  </form>
+  </div>
+
+  )
+}
+function Kirjaudu()
 {
   return (
   <div>
@@ -60,17 +137,22 @@ function Login()
     <div>
     <label> Salasana </label>
     </div>
-    <div><input type="password" name ="pass" id="pass"placeholder='****'/>
+    <div>
+    <input type="password" name ="pass" id="pass"placeholder='****'/>
     </div>
     <div>
     <input type ="button" name="log" id="log" value="Kirjaudu"/>
+    </div>
+    <div>
+    <input type ="checkbox" id ="delete" name="delete"/>
+    <label for ="delete">Poista käyttäjä</label>
     </div>
   </form>
   </div>
   )
 }
 
-function Chart1()
+function Päästölähteet()
 {
 // const options = {scales: {y:{min:0,max:1000}}};
 

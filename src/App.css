@@ -42,6 +42,18 @@ body {
   
  }
 
+ h5{
+
+  font-style: oblique;
+ }
+
+ .Etusivu{
+  text-align: center;
+  font-style: oblique;
+  color: rgb(255, 255, 255);
+  border-style: groove;
+ }
+
  h1{
  
   color: white;
