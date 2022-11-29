@@ -33,19 +33,19 @@ function App() {
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={5}>Co2 pitoisuudet</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={5}>CO2 pitoisuudet</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
           </Container>
       </Navbar>
     
-      {selection == 3 ? <Päästölähteet/> : <h1></h1>};
-      {selection == 1 ? <Kirjaudu/> : <h1></h1>};
-      {selection == 2 ? <Luo/> : <h1></h1>};
-      {selection == 0 ? <Etusivu/> : <h1></h1>};
-      {selection == 4 ? <Lämpötilat/> : <h1></h1>};
-      {selection == 5 ? <Pitoisuudet/> : <h1></h1>};
+      {selection == 3 ? <Päästölähteet/> : <h1></h1>}
+      {selection == 1 ? <Kirjaudu/> : <h1></h1>}
+      {selection == 2 ? <Luo/> : <h1></h1>}
+      {selection == 0 ? <Etusivu/> : <h1></h1>}
+      {selection == 4 ? <Lämpötilat/> : <h1></h1>}
+      {selection == 5 ? <Pitoisuudet/> : <h1></h1>}
 
     
      
@@ -68,9 +68,9 @@ function Pitoisuudet()
         {
           label: "product sales",
           data: productSales.map(d=> d.sales),
-          backgroundColor: [
-            '#99346C','#E6DA85','#E66EB0','#57D8E6'
-          ]
+          backgroundColor: ['#99346C','#E6DA85','#E66EB0','#57D8E6'],
+          borderColor: "white",
+          borderWidth: 1
         }
       ],
     });
@@ -99,9 +99,9 @@ function Lämpötilat()
         {
           label: "product sales",
           data: productSales.map(d=> d.sales),
-          backgroundColor: [
-            '#99346C','#E6DA85','#E66EB0','#57D8E6'
-          ]
+          backgroundColor:['#99346C','#E6DA85','#E66EB0','#57D8E6'],
+          borderColor: "white",
+          borderWidth: 1
         }
       ],
     });
@@ -139,13 +139,13 @@ function Luo()
     <label> Etunimi </label>
     </div>
     <div>
-    <input type ="text"name ="uname" id="uname" placeholder=''/>
+    <input type ="text"name ="fname" id="fname" placeholder=''/>
     </div>
     <div>
     <label> Sukunimi </label>
     </div>
     <div>
-    <input type ="text"name ="uname" id="uname" placeholder=''/>
+    <input type ="text"name ="lname" id="lname" placeholder=''/>
     </div>
     <div>
     <label> Käyttäjänimi</label>
@@ -159,7 +159,7 @@ function Luo()
     <div><input type="password" name ="pass" id="pass"placeholder='****'/>
     </div>
     <div>
-    <input type ="button" name="log" id="log" value="Luo käyttäjä"/>
+    <input type ="button" name="luo" id="luo" value="Luo käyttäjä"/>
     </div>
   </form>
   </div>
@@ -212,9 +212,9 @@ const [chartData, setcharData] = useState({
       {
         label: "product sales",
         data: productSales.map(d=> d.sales),
-        backgroundColor: [
-          '#99346C','#E6DA85','#E66EB0','#57D8E6'
-        ]
+        backgroundColor: ['#99346C','#E6DA85','#E66EB0','#57D8E6'],
+        borderColor: "white",
+        borderWidth: 1
       }
     ],
   });
