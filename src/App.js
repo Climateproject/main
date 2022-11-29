@@ -19,10 +19,8 @@ function App() {
       <h5>web-ohjelmoinnin sovellusprojekti</h5>
       <Navbar bg='dark' variant='dark' expand='lg'>
           <Container>
-             {/* Lisätään hampparimenu */}
             <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='basic-navbar-nav'>
-                 {/* onSelect asettaa menussa valitun itemin eventKeyn */}
               <Nav className="me-auto" onSelect={sel => setSelection(sel)}>
                   <Nav.Link eventKey={0}>Etusivu</Nav.Link>
                   <NavDropdown title="Valikko" id="basic-nav-dropdown">
@@ -33,19 +31,19 @@ function App() {
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={5}>Co2 pitoisuudet</NavDropdown.Item>
+                    <NavDropdown.Item eventKey={5}>CO2 pitoisuudet</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
           </Container>
       </Navbar>
     
-      {selection == 3 ? <Päästölähteet/> : <h1></h1>};
-      {selection == 1 ? <Kirjaudu/> : <h1></h1>};
-      {selection == 2 ? <Luo/> : <h1></h1>};
-      {selection == 0 ? <Etusivu/> : <h1></h1>};
-      {selection == 4 ? <Lämpötilat/> : <h1></h1>};
-      {selection == 5 ? <Pitoisuudet/> : <h1></h1>};
+      {selection == 3 ? <Päästölähteet/> : <h1></h1>}
+      {selection == 1 ? <Kirjaudu/> : <h1></h1>}
+      {selection == 2 ? <Luo/> : <h1></h1>}
+      {selection == 0 ? <Etusivu/> : <h1></h1>}
+      {selection == 4 ? <Lämpötilat/> : <h1></h1>}
+      {selection == 5 ? <Pitoisuudet/> : <h1></h1>}
 
     
      
