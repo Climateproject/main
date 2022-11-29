@@ -19,10 +19,8 @@ function App() {
       <h5>web-ohjelmoinnin sovellusprojekti</h5>
       <Navbar bg='dark' variant='dark' expand='lg'>
           <Container>
-             {/* Lisätään hampparimenu */}
             <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='basic-navbar-nav'>
-                 {/* onSelect asettaa menussa valitun itemin eventKeyn */}
               <Nav className="me-auto" onSelect={sel => setSelection(sel)}>
                   <Nav.Link eventKey={0}>Etusivu</Nav.Link>
                   <NavDropdown title="Valikko" id="basic-nav-dropdown">
@@ -125,7 +123,7 @@ function Etusivu()
       <h2>Ilmastonmuutoksen visualisointia</h2>
     </div>
     <div>
-      <a href="https://github.com/Climateproject/main">GitHub</a> <a href ="https://www.youtube.com/">YouTube</a>
+      <a href="https://github.com/Climateproject/main" target="_blank">GitHub</a> <a href ="https://www.youtube.com/" target="_blank">YouTube</a>
     </div>
     </div>
   )
