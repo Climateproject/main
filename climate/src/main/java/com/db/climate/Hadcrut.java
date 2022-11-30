@@ -1,6 +1,5 @@
 package com.db.climate;
 
-import java.time.Year;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,28 +7,28 @@ import javax.persistence.Id;
 public class Hadcrut {
 
     @Id
-    private int Year;
+    private int year;
     private float Anomaly;
-    private float Ld;
-    private float Ud;
+    private float lcl;
+    private float ucl;
 
 
     public Hadcrut() {
     }
 
-    public Hadcrut(int Year, float Anomaly, float Ld, float Ud) {
-        this.Year = Year;
+    public Hadcrut(int year, float Anomaly, float lcl, float ucl) {
+        this.year = year;
         this.Anomaly = Anomaly;
-        this.Ld = Ld;
-        this.Ud = Ud;
+        this.lcl = lcl;
+        this.ucl = ucl;
     }
 
     public int getYear() {
-        return this.Year;
+        return this.year;
     }
 
-    public void setYear(int Year) {
-        this.Year = Year;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public float getAnomaly() {
@@ -40,20 +39,20 @@ public class Hadcrut {
         this.Anomaly = Anomaly;
     }
 
-    public float getLd() {
-        return this.Ld;
+    public float getlcl() {
+        return this.lcl;
     }
 
-    public void setLd(float Ld) {
-        this.Ld = Ld;
+    public void setlcl(float lcl) {
+        this.lcl = lcl;
     }
 
-    public float getUd() {
-        return this.Ud;
+    public float getucl() {
+        return this.ucl;
     }
 
-    public void setUd(float Ud) {
-        this.Ud = Ud;
+    public void setucl(float ucl) {
+        this.ucl = ucl;
     }
 
    
