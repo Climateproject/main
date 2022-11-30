@@ -32,6 +32,8 @@ function App() {
                     <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={5}>CO2 pitoisuudet</NavDropdown.Item>
+                    <NavDropdown.Divider /> 
+                    <NavDropdown.Item eventKey={6}>Testi</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
@@ -44,6 +46,7 @@ function App() {
       {selection == 0 ? <Etusivu/> : <h1></h1>}
       {selection == 4 ? <Lämpötilat/> : <h1></h1>}
       {selection == 5 ? <Pitoisuudet/> : <h1></h1>}
+      {selection == 6 ? <Testi/> : <h1></h1>}
 
     
      
@@ -51,8 +54,6 @@ function App() {
     </div>
   );
 }
-
-
 function Pitoisuudet()
 {
   const productSales = [
@@ -83,7 +84,6 @@ function Pitoisuudet()
       </div>
   )
 }
-
 function Lämpötilat()
 {
   const productSales = [
@@ -111,6 +111,34 @@ function Lämpötilat()
        <div><Line data={chartData}/></div>
        
       </div>
+  )
+}
+
+function Testi()
+{
+  const[anomaly,setAnomaly]=useState([])
+    useEffect(()=>{
+    fetch("http://localhost:8080/hadcrut/getall")
+    .then(res=>res.json())
+    .then((result)=>{
+    setAnomaly(result);
+  }
+)
+},[])
+  return(
+    <div>
+        {anomaly.map(anomaly=>(
+        <div style={{color:'white'}} elevation={6} key={anomaly.year}>
+         year:{anomaly.year}<br/>
+         anomaly:{anomaly.anomaly}<br/>
+         lcl:{anomaly.lcl}<br/>
+         joku:{anomaly.ucl}
+
+        </div>
+      ))
+}
+
+    </div>
   )
 }
 
