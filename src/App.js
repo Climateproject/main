@@ -6,7 +6,7 @@ import { Nav } from 'react-bootstrap';
 import { Navbar } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -51,6 +51,8 @@ function App() {
     </div>
   );
 }
+
+
 function Pitoisuudet()
 {
   const productSales = [
@@ -156,6 +158,7 @@ function Luo()
     </div>
     <div><input type="password" name ="pass" id="pass"placeholder='****'/>
     </div>
+    <br></br> 
     <div>
     <input type ="button" name="luo" id="luo" value="Luo käyttäjä"/>
     </div>
@@ -181,6 +184,7 @@ function Kirjaudu()
     <div>
     <input type="password" name ="pass" id="pass"placeholder='****'/>
     </div>
+    <br></br>
     <div>
     <input type ="button" name="log" id="log" value="Kirjaudu"/>
     </div>
