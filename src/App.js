@@ -126,8 +126,8 @@ function Etusivu()
     </div>
     <div>
       <a href="https://github.com/Climateproject/main" 
-      target="_blank" rel="noopener" rel="noreferrer">GitHub</a> <a href ="https://www.youtube.com/" target="_blank" 
-      rel="noopener" rel="noreferrer">YouTube</a>
+      target="_blank" rel="noreferrer">GitHub</a> <a href ="https://www.youtube.com/" target="_blank" 
+      rel="noreferrer">YouTube</a>
     </div>
     </div>
   )
