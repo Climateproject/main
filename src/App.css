@@ -49,7 +49,8 @@ body {
 
  .Etusivu{
   text-align:center;
-  margin-top: 10%;
+  margin-top: 20%;
+  margin-bottom: 20%;
   font-style: oblique;
   color: rgb(255, 255, 255);
   border-style: groove;
