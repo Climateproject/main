@@ -125,7 +125,9 @@ function Etusivu()
       <h2>Ilmastonmuutoksen visualisointia</h2>
     </div>
     <div>
-      <a href="https://github.com/Climateproject/main" target="_blank">GitHub</a> <a href ="https://www.youtube.com/" target="_blank">YouTube</a>
+      <a href="https://github.com/Climateproject/main" 
+      target="_blank" rel="noopener" rel="noreferrer">GitHub</a> <a href ="https://www.youtube.com/" target="_blank" 
+      rel="noopener" rel="noreferrer">YouTube</a>
     </div>
     </div>
   )
