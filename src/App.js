@@ -129,10 +129,10 @@ function Testi()
     <div>
         {anomaly.map(anomaly=>(
         <div style={{color:'white'}} elevation={6} key={anomaly.year}>
-         year:{anomaly.year}<br/>
-         anomaly:{anomaly.anomaly}<br/>
-         lcl:{anomaly.lcl}<br/>
-         joku:{anomaly.ucl}
+         Year:{anomaly.year}<br/>
+         Anomaly:{anomaly.anomaly}<br/>
+         Lcl:{anomaly.lcl}<br/>
+         Ucl:{anomaly.ucl}
 
         </div>
       ))
