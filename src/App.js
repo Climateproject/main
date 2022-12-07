@@ -1,5 +1,6 @@
 import './App.css';
 import {Bar, Line, Pie} from 'react-chartjs-2';
+import "chartjs-adapter-luxon";
 import {Chart as ChartJS} from 'chart.js/auto';
 import {Container} from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
@@ -117,38 +118,90 @@ function Lämpötilat()
 function Testi()
 {
   const[anomaly,setAnomaly]=useState([])
-    useEffect(()=>{
-    fetch("http://localhost:8080/hadcrut/getall")
-    .then(res=>res.json())
-    .then((result)=>{
-    setAnomaly(result);
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/hadcrut/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setAnomaly(result);
+         } )
+  },[]);
+
+  const[SecondData,setSecondData]=useState([])
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/nHemisphere/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setSecondData(result);
+         } )
+  },[]);
+
+  const data =  {
+    datasets:[
+      {
+        label: "anomaly",
+        data: anomaly,
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "anomaly"
+        }
+      },
+      {
+        label: "lcl",
+        data: anomaly,
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "lcl"
+        }
+      },
+      {
+        label: "ucl",
+        data: anomaly,
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "ucl"
+        }
+      },
+      {
+        label: "t",
+        data: SecondData,
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "t"
+        }
+      },
+      {
+        label: "lf",
+        data: SecondData,
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "t"
+        }
+      }
+    ],
   }
-)
-},[])
+
+  
+  const options = {
+    scales: {
+      x: { 
+        type: "linear", 
+        max: 2000,
+        title:{
+          display:true,
+          text: 'Time in years',
+        },
+      },
+    }
+  }
+
+  
   return(
-    <div>
-        {anomaly.map(anomaly=>(
-        <div style={{color:'white'}} elevation={6} key={anomaly.year}>
-         year:{anomaly.year}<br/>
-         anomaly:{anomaly.anomaly}<br/>
-         lcl:{anomaly.lcl}<br/>
-         joku:{anomaly.ucl}
-         <div>
-          <div>
-            <div><Line data={anomaly}/></div>
-          </div>
-          </div>
-         Year:{anomaly.year}<br/>
-         Anomaly:{anomaly.anomaly}<br/>
-         Lcl:{anomaly.lcl}<br/>
-         Ucl:{anomaly.ucl}
-
-        </div>
-      
-      ))
-}
-
+    <div style={{width: "800px"}}>
+       <Line options={options} data={data}/>
     </div>
+    
   )
 }
 
