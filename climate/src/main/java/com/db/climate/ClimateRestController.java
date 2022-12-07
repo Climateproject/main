@@ -15,7 +15,7 @@ public class ClimateRestController {
      HadrutRepository hadcrutRepo;
     //  HadrutRepository hadcrutRepo2;
     @Autowired
-     nHemisphereRepository nHemisphereRepo;
+    nhemisphereRepository nhemisphereRepo;
      
 
     @GetMapping("hadcrut/getall")
@@ -25,9 +25,9 @@ public class ClimateRestController {
         return hadcrutRepo.findAll();
     }
 
-    @GetMapping("nHemisphere/getall")
-    public List<nHemisphere> getAllNHemisphere(){
+    @GetMapping("nhemisphere/getall")
+    public List<nhemisphere> getAllnhemisphere(){
 
-        return nHemisphereRepo.findAll();
+        return nhemisphereRepo.findAll();
     }
 }
