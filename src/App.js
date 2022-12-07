@@ -35,7 +35,7 @@ function App() {
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={6}>Testi</NavDropdown.Item>
                   </NavDropdown>
-                </Nav>
+                </Nav> 
             </Navbar.Collapse>
           </Container>
       </Navbar>
@@ -133,8 +133,13 @@ function Testi()
          anomaly:{anomaly.anomaly}<br/>
          lcl:{anomaly.lcl}<br/>
          joku:{anomaly.ucl}
-
+         <div>
+          <div>
+            <div><Line data={anomaly}/></div>
+          </div>
+          </div>
         </div>
+      
       ))
 }
 
@@ -147,10 +152,7 @@ function Etusivu()
   return(
     <div class ="Etusivu">
       <div>
-      <h1>Faktat näkyväksi</h1>
-    </div>
-    <div>
-      <h2>Ilmastonmuutoksen visualisointia</h2>
+      <h2>Faktat näkyväksi - ilmastodatan visualisointia </h2>
     </div>
     <div>
       <a href="https://github.com/Climateproject/main" 
