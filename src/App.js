@@ -138,6 +138,11 @@ function Testi()
             <div><Line data={anomaly}/></div>
           </div>
           </div>
+         Year:{anomaly.year}<br/>
+         Anomaly:{anomaly.anomaly}<br/>
+         Lcl:{anomaly.lcl}<br/>
+         Ucl:{anomaly.ucl}
+
         </div>
       
       ))
