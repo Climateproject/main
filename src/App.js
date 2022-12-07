@@ -130,7 +130,7 @@ function Testi()
   const[SecondData,setSecondData]=useState([])
 
   useEffect(()=>{
-      fetch("http://localhost:8080/nHemisphere/getall")
+      fetch("http://localhost:8080/nhemisphere/getall")
         .then(res=>res.json())
         .then((result)=>{
           setSecondData(result);
@@ -198,7 +198,7 @@ function Testi()
 
   
   return(
-    <div style={{width: "800px"}}>
+    <div style={{width: "1100px"}}>
        <Line options={options} data={data}/>
     </div>
     
