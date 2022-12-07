@@ -13,11 +13,21 @@ public class ClimateRestController {
 
      @Autowired
      HadrutRepository hadcrutRepo;
+    //  HadrutRepository hadcrutRepo2;
+    @Autowired
+     nHemisphereRepository nHemisphereRepo;
+     
 
     @GetMapping("hadcrut/getall")
     public List<Hadcrut> getAllHadcrut(){
 
 
         return hadcrutRepo.findAll();
+    }
+
+    @GetMapping("nHemisphere/getall")
+    public List<nHemisphere> getAllNHemisphere(){
+
+        return nHemisphereRepo.findAll();
     }
 }
