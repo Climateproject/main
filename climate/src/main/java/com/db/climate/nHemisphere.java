@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class nhemisphere {
-
+public class Nhemisphere {
+    
     @Id
     private int year;
     private float t;
@@ -17,10 +17,21 @@ public class nhemisphere {
     private float abm;
     private float abp;
 
-    public nhemisphere() {
 
+    public Nhemisphere() {
     }
 
+    public Nhemisphere(int year, float t, float lf, float lfm, float lfp, float am, float ap, float abm, float abp) {
+        this.year = year;
+        this.t = t;
+        this.lf = lf;
+        this.lfm = lfm;
+        this.lfp = lfp;
+        this.am = am;
+        this.ap = ap;
+        this.abm = abm;
+        this.abp = abp;
+    }
 
     public int getYear() {
         return this.year;
@@ -93,5 +104,4 @@ public class nhemisphere {
     public void setAbp(float abp) {
         this.abp = abp;
     }
-    
 }
