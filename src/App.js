@@ -33,8 +33,6 @@ function App() {
                     <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={5}>CO2 pitoisuudet</NavDropdown.Item>
-                    <NavDropdown.Divider /> 
-                    <NavDropdown.Item eventKey={6}>Testi</NavDropdown.Item>
                   </NavDropdown>
                 </Nav> 
             </Navbar.Collapse>
@@ -47,11 +45,6 @@ function App() {
       {selection == 0 ? <Etusivu/> : <h1></h1>}
       {selection == 4 ? <Lämpötilat/> : <h1></h1>}
       {selection == 5 ? <Pitoisuudet/> : <h1></h1>}
-      {selection == 6 ? <Testi/> : <h1></h1>}
-
-    
-     
-    
     </div>
   );
 }
@@ -87,36 +80,6 @@ function Pitoisuudet()
 }
 function Lämpötilat()
 {
-  const productSales = [
-    {year: 1993, sales: 500},
-    {year: 1994, sales: 340},
-    {year: 1995, sales: 700},
-    {year: 1996, sales: 700}
-  ];
-  
-  const [chartData, setcharData] = useState({
-      labels: productSales.map(d => d.year),
-      datasets: [
-        {
-          label: "product sales",
-          data: productSales.map(d=> d.sales),
-          backgroundColor:['#99346C','#E6DA85','#E66EB0','#57D8E6'],
-          borderColor: "white",
-          borderWidth: 1
-        }
-      ],
-    });
-  return(
-    <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
-       
-       <div><Line data={chartData}/></div>
-       
-      </div>
-  )
-}
-
-function Testi()
-{
   const[anomaly,setAnomaly]=useState([])
 
   useEffect(()=>{
@@ -140,45 +103,109 @@ function Testi()
   const data =  {
     datasets:[
       {
-        label: "anomaly",
+        label: "Northern hemisphere annual",
         data: anomaly,
         parsing: {
           xAxisKey: "year",
           yAxisKey: "anomaly"
         }
       },
+      // {
+      //   label: "lcl",
+      //   data: anomaly,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "lcl"
+      //   }
+      // },
+      // {
+      //   label: "ucl",
+      //   data: anomaly,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "ucl"
+      //   }
+      // },
       {
-        label: "lcl",
-        data: anomaly,
-        parsing: {
-          xAxisKey: "year",
-          yAxisKey: "lcl"
-        }
-      },
-      {
-        label: "ucl",
-        data: anomaly,
-        parsing: {
-          xAxisKey: "year",
-          yAxisKey: "ucl"
-        }
-      },
-      {
-        label: "t",
+        label: "2000 year temperatures",
         data: SecondData,
         parsing: {
           xAxisKey: "year",
           yAxisKey: "t"
         }
       },
-      {
-        label: "lf",
-        data: SecondData,
-        parsing: {
-          xAxisKey: "year",
-          yAxisKey: "t"
-        }
-      }
+      // {
+      //   label: "lf",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "t"
+      //   }
+      // },
+      // {
+      //   label: "t",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "t"
+      //   }
+      // },
+      // {
+      //   label: "lf",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "lf"
+      //   }
+      // },
+      // {
+      //   label: "lfm",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "lfm"
+      //   }
+      // },
+      // {
+      //   label: "lfp",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "lfp"
+      //   }
+      // },
+      // {
+      //   label: "am",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "am"
+      //   }
+      // },
+      // {
+      //   label: "ap",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "ap"
+      //   }
+      // },
+      // {
+      //   label: "abm",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "abm"
+      //   }
+      // },
+      // {
+      //   label: "abp",
+      //   data: SecondData,
+      //   parsing: {
+      //     xAxisKey: "year",
+      //     yAxisKey: "abp"
+      //   }
+      // },
     ],
   }
 
@@ -186,8 +213,7 @@ function Testi()
   const options = {
     scales: {
       x: { 
-        type: "linear", 
-        max: 2000,
+        type: "linear",
         title:{
           display:true,
           text: 'Time in years',
@@ -198,7 +224,7 @@ function Testi()
 
   
   return(
-    <div style={{width: "1100px"}}>
+    <div style={{width: "1400px"}}>
        <Line options={options} data={data}/>
     </div>
     
