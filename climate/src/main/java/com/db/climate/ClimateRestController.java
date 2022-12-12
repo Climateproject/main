@@ -20,6 +20,16 @@ public class ClimateRestController {
      @Autowired
      MaunaloanRepository MaunaloanRepo;
 
+     @Autowired
+     VostokRepository VostokRepo;
+     
+     @Autowired
+     IcecoreRepository IcecoreRepo;
+
+     @Autowired
+     EvolutionRepository EvolutionRepo;
+
+
     @GetMapping("hadcrut/getall")
     public List<Hadcrut> getAllHadcrut(){
 
@@ -38,4 +48,23 @@ public class ClimateRestController {
 
         return MaunaloanRepo.findAll();
     }
+
+    @GetMapping("vostok/getall")
+    public List<Vostok> getAllvostok(){
+
+        return VostokRepo.findAll();
+    }
+
+    @GetMapping("icecore/getall")
+    public List<Icecore> getAllicecore(){
+
+        return IcecoreRepo.findAll();
+    }
+    
+    @GetMapping("evolution/getall")
+    public List<Evolution> getAllevolution(){
+
+        return EvolutionRepo.findAll();
+    }
 }
+
