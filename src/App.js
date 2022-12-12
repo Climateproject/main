@@ -28,8 +28,7 @@ function App() {
                     <NavDropdown.Item eventKey={1}>Kirjaudu</NavDropdown.Item>
                     <NavDropdown.Item eventKey={2}>Luo käyttäjä</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item eventKey={3}>Päästölähteet</NavDropdown.Item>
-                    <NavDropdown.Divider /> 
+                    
                     <NavDropdown.Item eventKey={4}>Lämpötilatiedot</NavDropdown.Item>
                     <NavDropdown.Divider /> 
                     <NavDropdown.Item eventKey={5}>CO2 pitoisuudet</NavDropdown.Item>
@@ -39,7 +38,6 @@ function App() {
           </Container>
       </Navbar>
     
-      {selection == 3 ? <Päästölähteet/> : <h1></h1>}
       {selection == 1 ? <Kirjaudu/> : <h1></h1>}
       {selection == 2 ? <Luo/> : <h1></h1>}
       {selection == 0 ? <Etusivu/> : <h1></h1>}
@@ -50,34 +48,102 @@ function App() {
 }
 function Pitoisuudet()
 {
-  const productSales = [
-    {year: 1993, sales: 500},
-    {year: 1994, sales: 340},
-    {year: 1995, sales: 700},
-    {year: 1996, sales: 700}
-  ];
+  const[ThirdData,setThirdData]=useState([])
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/maunaloan/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setThirdData(result);
+         } )
+  },[]);
+
+  const[FourthData,setFourthData]=useState([])
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/vostok/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setFourthData(result);
+         } )
+  },[]);
+
+  const[FifthData,setFifthData]=useState([])
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/icecore/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setFifthData(result);
+         } )
+  },[]);
   
-  const [chartData, setcharData] = useState({
-      labels: productSales.map(d => d.year),
-      datasets: [
-        {
-          label: "product sales",
-          data: productSales.map(d=> d.sales),
-          backgroundColor: ['#99346C','#E6DA85','#E66EB0','#57D8E6'],
-          borderColor: "white",
-          borderWidth: 1
+  const data =  {
+    datasets:[
+      {
+        label: "Maunaloan annual C02",
+        data: ThirdData,
+        backgroundColor:'yellow',
+        borderColor: "yellow",
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "mean"
         }
-      ],
-    });
-  return (
-    <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
-       
+      },
+    ],
+  }
+  const data2 =  {
+    datasets:[
+      {
+        label: "Historical CO2 Record from the Vostok Ice Core",
+        data: FourthData,
+        backgroundColor:'yellow',
+        borderColor: "yellow",
+        parsing: {
+          xAxisKey: "ageofice",
+          yAxisKey: "co"
+        }
+      },
+    ],
+  }
+
+  const data3 =  {
+    datasets:[
+      {
+        label: "C02 Measurements",
+        data: FifthData,
+        backgroundColor:'yellow',
+        borderColor: "yellow",
+        parsing: {
+          xAxisKey: "agc",
+          yAxisKey: "coppm"
+        }
+      },
+    ],
+  }
   
-       <div><Pie data ={chartData}/></div>
-       
-      </div>
+  const options = {
+    scales: {
+      x: { 
+        type: "linear",
+        title:{
+          display:true,
+          text: 'Time in years',
+        },
+      },
+    }
+  }
+
+  return(
+    <div style={{width: "1000px"}}>
+      <div> <Line options={options} data={data}/></div>
+      <div> <Line options={options} data={data2}/></div>
+      <div> <Line options={options} data={data3}/></div>
+    </div>
+    
   )
-}
+  }
+
 function Lämpötilat()
 {
   const[anomaly,setAnomaly]=useState([])
@@ -100,115 +166,56 @@ function Lämpötilat()
          } )
   },[]);
 
+  const[SixthData,setSixthData]=useState([])
+
+  useEffect(()=>{
+      fetch("http://localhost:8080/evolution/getall")
+        .then(res=>res.json())
+        .then((result)=>{
+          setSixthData(result);
+         } )
+  },[]);
+
+
   const data =  {
     datasets:[
       {
         label: "Northern hemisphere annual",
         data: anomaly,
+        backgroundColor:'yellow',
+        borderColor: "yellow",
         parsing: {
           xAxisKey: "year",
           yAxisKey: "anomaly"
         }
       },
-      // {
-      //   label: "lcl",
-      //   data: anomaly,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "lcl"
-      //   }
-      // },
-      // {
-      //   label: "ucl",
-      //   data: anomaly,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "ucl"
-      //   }
-      // },
       {
         label: "2000 year temperatures",
         data: SecondData,
+        backgroundColor:'red',
+        borderColor: "red",
         parsing: {
           xAxisKey: "year",
           yAxisKey: "t"
         }
       },
-      // {
-      //   label: "lf",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "t"
-      //   }
-      // },
-      // {
-      //   label: "t",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "t"
-      //   }
-      // },
-      // {
-      //   label: "lf",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "lf"
-      //   }
-      // },
-      // {
-      //   label: "lfm",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "lfm"
-      //   }
-      // },
-      // {
-      //   label: "lfp",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "lfp"
-      //   }
-      // },
-      // {
-      //   label: "am",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "am"
-      //   }
-      // },
-      // {
-      //   label: "ap",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "ap"
-      //   }
-      // },
-      // {
-      //   label: "abm",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "abm"
-      //   }
-      // },
-      // {
-      //   label: "abp",
-      //   data: SecondData,
-      //   parsing: {
-      //     xAxisKey: "year",
-      //     yAxisKey: "abp"
-      //   }
-      // },
     ],
   }
 
+  const data2 =  {
+    datasets:[
+      {
+        label: "CO2 PPM",
+        data: SixthData,
+        backgroundColor:'yellow',
+        borderColor: "yellow",
+        parsing: {
+          xAxisKey: "year",
+          yAxisKey: "cdppm"
+        }
+      },
+    ]
+  }
   
   const options = {
     scales: {
@@ -225,7 +232,8 @@ function Lämpötilat()
   
   return(
     <div style={{width: "1400px"}}>
-       <Line options={options} data={data}/>
+       <div><Line options={options} data={data}/></div>
+       <div><Line options={options} data={data2}/></div>
     </div>
     
   )
@@ -313,39 +321,5 @@ function Kirjaudu()
   )
 }
 
-function Päästölähteet()
-{
-// const options = {scales: {y:{min:0,max:1000}}};
-
-const productSales = [
-  {year: 1993, sales: 500},
-  {year: 1994, sales: 340},
-  {year: 1995, sales: 700},
-  {year: 1996, sales: 700}
-];
-
-const [chartData, setcharData] = useState({
-    labels: productSales.map(d => d.year),
-    datasets: [
-      {
-        label: "product sales",
-        data: productSales.map(d=> d.sales),
-        backgroundColor: ['#99346C','#E6DA85','#E66EB0','#57D8E6'],
-        borderColor: "white",
-        borderWidth: 1
-      }
-    ],
-  });
-
-
-    return (
-      <div style={{ display: 'flex', alignItems:'center', flexWrap:'wrap'}}>
-       
-       <div><Line data={chartData}/></div>
-       <div><Pie data ={chartData}/></div>
-       
-      </div>
-    )
-}
 export default App;
 

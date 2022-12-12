@@ -37,7 +37,10 @@
   }
 }
 body {
-  background-image: url("/src/images/globe.jpg");
+  background-image: url("/src/images/karhu.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: #cccccc;
   
  }
