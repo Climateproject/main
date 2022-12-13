@@ -37,8 +37,9 @@
   }
 }
 body {
-  background-image: url("/src/images/karhu.png");
+  background-image: url("/src/images/kuva.png");
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #cccccc;
@@ -56,7 +57,7 @@ body {
   margin-bottom: 60%;
   font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
+  color: black;
   border-style: groove;
   padding-top: 2%;
   margin-right: 5%;
@@ -80,7 +81,7 @@ label{
 #Uname{  
     width: 300px;  
     height: 30px;  
-    border: none;  
+    border-color: black;
     border-radius: 3px;  
     padding-left: 8px;  
   
@@ -88,36 +89,46 @@ label{
 #fname{
   width: 189px;  
     height: 30px;  
-    border: none;  
-    border-radius: 3px;  
+    border-radius: 3px;
+    border-color: black; 
     padding-left: 8px
 }
 #lname{
   width: 189px;  
   height: 30px;  
-  border: none;  
-  border-radius: 3px;  
+  border-radius: 3px;
+  border-color: black;  
   padding-left: 8px
 }
 #Pass{  
     width: 300px;  
     height: 30px;  
-    border: none;  
-    border-radius: 3px;  
+    border-radius: 3px;
+    border-color: black;  
     padding-left: 8px;  
       
 }  
 #log{  
     width: 100px;  
     height: 30px;  
-    border: none;    
+    border-color: black;   
     padding-left: 0px;  
     color: rgb(0, 0, 0);
 }
 #luo{
   width: 100px;  
   height: 30px;  
-  border: none;    
+  border-color: black;   
   padding-left: 0px;  
   color: rgb(0, 0, 0);
+}
+p{
+  margin-left: 2%;
+  padding: 1%;
+  border-style: groove;
+  border-color: white;
+}
+
+h5{
+  margin-left: 2%;
 }
